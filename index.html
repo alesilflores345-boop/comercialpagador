@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comercial El Pagador</title>
+
+<style>
+/* Reset universal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Century gothic, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* ENCABEZADO */
+header {
+    background-color: #16324f;
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+/* MENU */
+nav {
+    background-color: #f5a623;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: blue;
+}
+
+/* PORTADA */
+.portada {
+    background: linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+    ),
+    url("fotos/20.gif");
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 300px 400px;
+}
+
+.portada h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.portada p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* BOTONES */
+.boton {
+    display: inline-block;
+    background-color: #f5a623;
+    color: #222;
+    padding: 13px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: #ffd166;
+}
+
+/* SECCIONES */
+section {
+    padding: 45px 20px;
+    text-align: center;
+}
+
+section h2 {
+    color: #16324f;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* CATEGORIAS */
+.categorias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+}
+
+.categorias button {
+    background-color: #16324f;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.categorias button:hover {
+    background-color: #f5a623;
+    color: #222;
+}
+
+/* CATALOGOS */
+.catalogo {
+    display: none;
+    background-color: #e8edf2;
+    padding: 50px 35px;
+}
+
+.catalogo h2 {
+    color: #16324f;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 22px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.tarjeta {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 10px #cccccc;
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.tarjeta h3 {
+    color: #16324f;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.precio {
+    color: #b22222;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.volver {
+    display: block;
+    margin: 30px auto 0;
+    background: #16324f;
+    color: white;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.volver:hover {
+    background: #f5a623;
+    color: #222;
+}
+
+/* NOSOTROS, RESEÑA, MISIÓN Y VISIÓN */
+#nosotros {
+    background-color: white;
+}
+
+.resena-texto {
+    max-width: 800px;
+    margin: 0 auto 35px auto;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #444;
+    text-align: justify;
+}
+
+.mision-vision-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    max-width: 900px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.tarjeta-mv {
+    background: #f9f9f9;
+    border-left: 5px solid #f5a623;
+    padding: 25px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 280px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+.tarjeta-mv h3 {
+    color: #16324f;
+    margin-bottom: 12px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tarjeta-mv p {
+    line-height: 1.6;
+    color: #555;
+    font-size: 15px;
+}
+
+/* CONTACTO */
+#contacto {
+    background-color: #e8edf2;
+}
+
+#contacto p {
+    margin: 12px 0;
+}
+
+/* PIE DE PAGINA */
+footer {
+    background-color: #16324f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 8px;
+    }
+
+    .portada h2 {
+        font-size: 29px;
+    }
+
+    .contenedor-productos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .tarjeta img {
+        height: 130px;
+    }
+
+    .mision-vision-grid {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENCABEZADO -->
+<header>
+    <h1>🔨 COMERCIAL PAGADOR</h1>
+    <p>Todo para construir, reparar y mejorar</p>
+</header>
+
+<!-- MENU -->
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- PORTADA -->
+<div class="portada" id="inicio">
+    <h2>¡Construye tus proyectos con nosotros!</h2>
+    <p>Encuentra herramientas, materiales y artículos de ferretería para cada necesidad.</p>
+    <a href="#productos" class="boton">VER PRODUCTOS</a>
+</div>
+
+<!-- PRODUCTOS PRINCIPALES -->
+<section id="productos">
+    <h2>NUESTROS PRODUCTOS</h2>
+
+    <div class="categorias">
+        <button onclick="mostrarProductos('herramientas')">🔨 HERRAMIENTAS</button>
+        <button onclick="mostrarProductos('materiales')">🧱 MATERIALES DE CONSTRUCCIÓN</button>
+        <button onclick="mostrarProductos('plomeria')">🚰 PLOMERÍA</button>
+        <button onclick="mostrarProductos('pinturas')">🎨 PINTURAS</button>
+    </div>
+
+</section>
+
+<!-- CATALOGO DE HERRAMIENTAS (30 PRODUCTOS) -->
+<div id="herramientas" class="catalogo">
+    <h2>🔨 CATÁLOGO DE HERRAMIENTAS</h2>
+    <div class="contenedor-productos">
+        <div class="tarjeta"><img src="fotos/1.jpg" alt="Taladro"><h3>Taladro Eléctrico</h3><p class="precio">Bs. 450</p></div>
+        <div class="tarjeta"><img src="fotos/2.jpg"><h3>BROCAS DE 13 PCS</h3><p class="precio">Bs. 65</p></div>
+        <div class="tarjeta"><img src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=500" alt="Herramientas Manuales"><h3>Juego Herramientas Manuales</h3><p class="precio">Bs. 120</p></div>
+        <div class="tarjeta"><img src="herramientas/4.jpg" alt="Destornilladores"><h3>Juego de Destornilladores</h3><p class="precio">Bs. 35</p></div>
+        <div class="tarjeta"><img src="herramientas/5.jpg" alt="Amoladora"><h3>Amoladora Angular 4 1/2"</h3><p class="precio">Bs. 380</p></div>
+        <div class="tarjeta"><img src="herramientas/6.jpg" alt="Alicate"><h3>Alicate Universal 8"</h3><p class="precio">Bs. 45</p></div>
+        <div class="tarjeta"><img src="herramientas/7.jpg" alt="Llave Inglesa"><h3>Llave Francesa Ajustable</h3><p class="precio">Bs. 55</p></div>
+        <div class="tarjeta"><img src="herramientas/8.jpg" alt="Cinta Métrica"><h3>Flexómetro 5 Metros</h3><p class="precio">Bs. 25</p></div>
+        <div class="tarjeta"><img src="herramientas/9.jpg" alt="Nivel"><h3>Nivel de Mano 18"</h3><p class="precio">Bs. 40</p></div>
+        <div class="tarjeta"><img src="herramientas/10.jpg" alt="Sierra Circular"><h3>Sierra Circular 7 1/4"</h3><p class="precio">Bs. 520</p></div>
+        <div class="tarjeta"><img src="herramientas/11.jpg" alt="Soldadora"><h3>Soldadora Inverter 200A</h3><p class="precio">Bs. 850</p></div>
+        <div class="tarjeta"><img src="herramientas/12.jpg" alt="Cincel"><h3>Cincel de Corte 10"</h3><p class="precio">Bs. 30</p></div>
+        <div class="tarjeta"><img src="herramientas/13.jpg" alt="Pala"><h3>Pala Cuadrada de Obra</h3><p class="precio">Bs. 75</p></div>
+        <div class="tarjeta"><img src="herramientas/14.jpg" alt="Picota"><h3>Picota con Mango</h3><p class="precio">Bs. 85</p></div>
+        <div class="tarjeta"><img src="herramientas/15.jpg" alt="Carretilla"><h3>Carretilla 60L Reforzada</h3><p class="precio">Bs. 320</p></div>
+        <div class="tarjeta"><img src="herramientas/16.jpg" alt="Prensa C"><h3>Prensa de Mano Tipo C</h3><p class="precio">Bs. 40</p></div>
+        <div class="tarjeta"><img src="herramientas/17.jpg" alt="Cortadora"><h3>Cortadora de Cerámica Manual</h3><p class="precio">Bs. 240</p></div>
+        <div class="tarjeta"><img src="herramientas/18.jpg" alt="Arco de Sierra"><h3>Arco de Sierra para Metal</h3><p class="precio">Bs. 35</p></div>
+        <div class="tarjeta"><img src="herramientas/19.jpg" alt="Multímetro"><h3>Multímetro Digital</h3><p class="precio">Bs. 70</p></div>
+        <div class="tarjeta"><img src="herramientas/20.jpg" alt="Pistola Silicona"><h3>Pistola Calafateadora</h3><p class="precio">Bs. 30</p></div>
+        <div class="tarjeta"><img src="herramientas/21.jpg" alt="Llaves de Boca"><h3>Juego Llaves Combinadas</h3><p class="precio">Bs. 110</p></div>
+        <div class="tarjeta"><img src="herramientas/22.jpg" alt="Llave Stilson"><h3>Llave para Tubo 14"</h3><p class="precio">Bs. 85</p></div>
+        <div class="tarjeta"><img src="herramientas/23.jpg" alt="Juego Brocas"><h3>Juego de Brocas Mixtas</h3><p class="precio">Bs. 60</p></div>
+        <div class="tarjeta"><img src="herramientas/24.jpg" alt="Esmeril"><h3>Esmeril de Banco 6"</h3><p class="precio">Bs. 410</p></div>
+        <div class="tarjeta"><img src="herramientas/25.jpg" alt="Sierra Caladora"><h3>Sierra Caladora 550W</h3><p class="precio">Bs. 310</p></div>
+        <div class="tarjeta"><img src="herramientas/26.jpg" alt="Cepillo Madera"><h3>Cepillo Manual Carpintero</h3><p class="precio">Bs. 90</p></div>
+        <div class="tarjeta"><img src="herramientas/27.jpg" alt="Gato Hidráulico"><h3>Gato Hidráulico 2 Ton</h3><p class="precio">Bs. 190</p></div>
+        <div class="tarjeta"><img src="herramientas/28.jpg" alt="Caja Herramientas"><h3>Caja de Herramientas Plástica</h3><p class="precio">Bs. 80</p></div>
+        <div class="tarjeta"><img src="herramientas/29.jpg" alt="Guantes"><h3>Guantes de Cuero Resistente</h3><p class="precio">Bs. 20</p></div>
+        <div class="tarjeta"><img src="herramientas/30.jpg" alt="Lentes Protección"><h3>Lentes de Seguridad Transparentes</h3><p class="precio">Bs. 20</p></div>
+    </div>
+    <button class="volver" onclick="volverProductos()">VOLVER A PRODUCTOS</button>
+</div>
+
+<!-- CATALOGO DE MATERIALES (30 PRODUCTOS) -->
+<div id="materiales" class="catalogo">
+    <h2>🧱 MATERIALES DE CONSTRUCCIÓN</h2>
+    <div class="contenedor-productos">
+        <div class="tarjeta"><img src="materialesdeconstruccion/1.jpg" alt="Cemento"><h3>Cemento IP-30 (Bolsa)</h3><p class="precio">Bs. 85</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/2.jpg" alt="Ladrillos"><h3>Ladrillo 6 Huecos</h3><p class="precio">Bs. 5.50</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/3.jpg" alt="Ladrillo Gambote"><h3>Ladrillo Gambote Macizo</h3><p class="precio">Bs. 1.80</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/4.jpg" alt="Fierro 12mm"><h3>Fierro Corrugado 12mm (Barra)</h3><p class="precio">Bs. 75</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/5.jpg" alt="Fierro 10mm"><h3>Fierro Corrugado 10mm (Barra)</h3><p class="precio">Bs. 52</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/6.jpg" alt="Fierro 8mm"><h3>Fierro Corrugado 8mm (Barra)</h3><p class="precio">Bs. 34</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/7.jpg" alt="Arena"><h3>Arena Corriente (m³)</h3><p class="precio">Bs. 120</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/8.jpg" alt="Arena Fina"><h3>Arena Fina para Cernir (m³)</h3><p class="precio">Bs. 140</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/9.jpg" alt="Grava"><h3>Grava de Construcción (m³)</h3><p class="precio">Bs. 130</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/10.jpg" alt="Yeso"><h3>Yeso Blanco (Bolsa)</h3><p class="precio">Bs. 30</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/11.jpg" alt="Cal"><h3>Cal Hidratada en Bolsa</h3><p class="precio">Bs. 25</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/12.jpg" alt="Alambre"><h3>Alambre de Amarre (Kg)</h3><p class="precio">Bs. 14</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/13.jpg" alt="Clavos"><h3>Clavos de 3" para Madera (Kg)</h3><p class="precio">Bs. 15</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/14.jpg" alt="Calamina"><h3>Calamina Galvanizada N° 28</h3><p class="precio">Bs. 65</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/15.jpg" alt="Calamina Plástica"><h3>Calamina Trasparente Plástica</h3><p class="precio">Bs. 70</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/16.jpg" alt="Bloque Cemento"><h3>Bloque de Cemento 15x20x40</h3><p class="precio">Bs. 5.50</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/17.jpg" alt="Vigueta"><h3>Vigueta Pretensada (Metro)</h3><p class="precio">Bs. 38</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/18.jpg" alt="Plastofor"><h3>Plastofor para Losa (Pieza)</h3><p class="precio">Bs. 12</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/19.jpg" alt="Cerafix"><h3>Pegamento para Cerámica 25Kg</h3><p class="precio">Bs. 45</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/20.jpg" alt="Porcelanato"><h3>Porcelanato 60x60 (m²)</h3><p class="precio">Bs. 85</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/21.jpg" alt="Cerámica"><h3>Cerámica para Piso 40x40 (m²)</h3><p class="precio">Bs. 50</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/22.jpg" alt="Malla"><h3>Malla Electrosoldada 2.40x6m</h3><p class="precio">Bs. 180</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/23.jpg" alt="Teja"><h3>Teja Colonial de Arcilla</h3><p class="precio">Bs. 4.00</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/24.jpg" alt="Alquitrán"><h3>Alquitrán Líquido Impermeabilizante</h3><p class="precio">Bs. 85</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/25.jpg" alt="Sika"><h3>Aditivo Hidrófugo para Mezcla</h3><p class="precio">Bs. 40</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/26.jpg" alt="Perfil Metal"><h3>Tubo Estructural Cuadrado 40x40</h3><p class="precio">Bs. 95</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/27.jpg" alt="Angular"><h3>Perfil Perfil Angular 1" x 1/8"</h3><p class="precio">Bs. 65</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/28.jpg" alt="Listón"><h3>Listón de Madera 2x2 (Metro)</h3><p class="precio">Bs. 10</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/29.jpg" alt="Tabla"><h3>Tabla para Encofrado (Pieza)</h3><p class="precio">Bs. 35</p></div>
+        <div class="tarjeta"><img src="materialesdeconstruccion/30.jpg" alt="Malla Olímpica"><h3>Malla Olímpica Galvanizada (m)</h3><p class="precio">Bs. 80</p></div>
+    </div>
+    <button class="volver" onclick="volverProductos()">VOLVER A PRODUCTOS</button>
+</div>
+
+<!-- CATALOGO DE PLOMERIA (30 PRODUCTOS) -->
+<div id="plomeria" class="catalogo">
+    <h2>🚰 PRODUCTOS DE PLOMERÍA</h2>
+    <div class="contenedor-productos">
+        <div class="tarjeta"><img src="plomeria1/1.jpg" alt="Tuberías"><h3>Tubería PVC Desagüe 4" (Tira)</h3><p class="precio">Bs. 75</p></div>
+        <div class="tarjeta"><img src="plomeria1/2.jpg" alt="Tubo PVC 2"><h3>Tubería PVC Desagüe 2" (Tira)</h3><p class="precio">Bs. 45</p></div>
+        <div class="tarjeta"><img src="plomeria1/3.jpg" alt="Tubo Agua 1/2"><h3>Tubería PVC Agua Potable 1/2"</h3><p class="precio">Bs. 28</p></div>
+        <div class="tarjeta"><img src="plomeria1/4.jpg" alt="Grifería"><h3>Grifo Monocomando Lavamanos</h3><p class="precio">Bs. 85</p></div>
+        <div class="tarjeta"><img src="plomeria1/5.jpg" alt="Grifo Mezclador"><h3>Grifo Mezclador para Lavaplatos</h3><p class="precio">Bs. 110</p></div>
+        <div class="tarjeta"><img src="plomeria1/6.jpg" alt="Codo 4"><h3>Codo PVC 4" x 90°</h3><p class="precio">Bs. 12</p></div>
+        <div class="tarjeta"><img src="plomeria1/7.jpg" alt="Codo 2"><h3>Codo PVC 2" x 90°</h3><p class="precio">Bs. 6</p></div>
+        <div class="tarjeta"><img src="plomeria1/8.jpg" alt="Tee 4"><h3>Tee PVC 4" Desagüe</h3><p class="precio">Bs. 15</p></div>
+        <div class="tarjeta"><img src="plomeria1/9.jpg" alt="Pegamento PVC"><h3>Pegamento para PVC 250ml</h3><p class="precio">Bs. 30</p></div>
+        <div class="tarjeta"><img src="plomeria1/10.jpg" alt="Teflón"><h3>Cinta Teflón 3/4"</h3><p class="precio">Bs. 5</p></div>
+        <div class="tarjeta"><img src="plomeria1/11.jpg" alt="Llave Paso"><h3>Llave de Paso Esférica 1/2"</h3><p class="precio">Bs. 35</p></div>
+        <div class="tarjeta"><img src="plomeria1/12.jpg" alt="Llave Paso 3/4"><h3>Llave de Paso Esférica 3/4"</h3><p class="precio">Bs. 45</p></div>
+        <div class="tarjeta"><img src="plomeria1/13.jpg" alt="Inodoro"><h3>Inodoro Cerámico Blanco</h3><p class="precio">Bs. 380</p></div>
+        <div class="tarjeta"><img src="plomeria1/14.jpg" alt="Lavamanos"><h3>Lavamanos de Colgar</h3><p class="precio">Bs. 160</p></div>
+        <div class="tarjeta"><img src="plomeria1/15.jpg" alt="Ducha Eléctrica"><h3>Ducha Eléctrica Lorenzetti</h3><p class="precio">Bs. 120</p></div>
+        <div class="tarjeta"><img src="plomeria1/16.jpg" alt="Tanque"><h3>Tanque de Agua 1000 Litros</h3><p class="precio">Bs. 750</p></div>
+        <div class="tarjeta"><img src="plomeria1/17.jpg" alt="Bomba"><h3>Bomba Peripheral 0.5 HP</h3><p class="precio">Bs. 280</p></div>
+        <div class="tarjeta"><img src="plomeria1/18.jpg" alt="Sifón"><h3>Sifón Flexible Lavaplatos</h3><p class="precio">Bs. 20</p></div>
+        <div class="tarjeta"><img src="plomeria1/19.jpg" alt="Tubo Flexible"><h3>Tubo Flexible Inoxidable 40cm</h3><p class="precio">Bs. 18</p></div>
+        <div class="tarjeta"><img src="plomeria1/20.jpg" alt="Flotador"><h3>Válvula Flotador para Tanque 1/2"</h3><p class="precio">Bs. 35</p></div>
+        <div class="tarjeta"><img src="plomeria1/21.jpg" alt="Rejilla"><h3>Rejilla de Piso Bronce 10x10</h3><p class="precio">Bs. 25</p></div>
+        <div class="tarjeta"><img src="plomeria1/22.jpg" alt="Sumidero"><h3>Sumidero Sifonado PVC</h3><p class="precio">Bs. 30</p></div>
+        <div class="tarjeta"><img src="plomeria1/23.jpg" alt="Tubo Termofusión"><h3>Tubo PPR Termofusión 20mm</h3><p class="precio">Bs. 32</p></div>
+        <div class="tarjeta"><img src="plomeria1/24.jpg" alt="Codo PPR"><h3>Codo PPR Termofusión 20mm</h3><p class="precio">Bs. 5</p></div>
+        <div class="tarjeta"><img src="plomeria1/25.jpg" alt="Termofusora"><h3>Máquina Termofusora 800W</h3><p class="precio">Bs. 260</p></div>
+        <div class="tarjeta"><img src="plomeria1/26.jpg" alt="Mecanismo Inodoro"><h3>Kit Herrajes para Inodoro</h3><p class="precio">Bs. 55</p></div>
+        <div class="tarjeta"><img src="plomeria1/27.jpg" alt="Grifo Jardín"><h3>Grifo Manguera de Jardín 1/2"</h3><p class="precio">Bs. 30</p></div>
+        <div class="tarjeta"><img src="plomeria1/28.jpg" alt="Manguera"><h3>Manguera de Riego 1/2" (15m)</h3><p class="precio">Bs. 65</p></div>
+        <div class="tarjeta"><img src="plomeria1/29.jpg" alt="Abrazadera"><h3>Abrazadera Metálica para Tubo</h3><p class="precio">Bs. 4</p></div>
+        <div class="tarjeta"><img src="plomeria1/30.jpg" alt="Sopapa"><h3>Sopapa Destapadora de Caucho</h3><p class="precio">Bs. 15</p></div>
+    </div>
+    <button class="volver" onclick="volverProductos()">VOLVER A PRODUCTOS</button>
+</div>
+
+<!-- CATALOGO DE PINTURAS (30 PRODUCTOS) -->
+<div id="pinturas" class="catalogo">
+    <h2>🎨 PINTURAS Y ACCESORIOS</h2>
+    <div class="contenedor-productos">
+        <div class="tarjeta"><img src="pintura/1.jpg" alt="Pintura Látex"><h3>Pintura Látex Blanco (Galón)</h3><p class="precio">Bs. 120</p></div>
+        <div class="tarjeta"><img src="pintura/2.jpg" alt="Látex Color"><h3>Pintura Látex Colores (Galón)</h3><p class="precio">Bs. 130</p></div>
+        <div class="tarjeta"><img src="pintura/3.jpg" alt="Esmalte"><h3>Esmalte Sintético (Galón)</h3><p class="precio">Bs. 145</p></div>
+        <div class="tarjeta"><img src="pintura/4.jpg" alt="Balde Pintura"><h3>Pintura Látex Interior (Balde 18L)</h3><p class="precio">Bs. 480</p></div>
+        <div class="tarjeta"><img src="pintura/5.jpg" alt="Rodillo"><h3>Rodillo de Lana 9" con Mango</h3><p class="precio">Bs. 35</p></div>
+        <div class="tarjeta"><img src="pintura/6.jpg" alt="Repuesto Rodillo"><h3>Repuesto de Rodillo 9"</h3><p class="precio">Bs. 18</p></div>
+        <div class="tarjeta"><img src="pintura/7.jpg" alt="Brocha 4"><h3>Brocha Cerda Natural 4"</h3><p class="precio">Bs. 25</p></div>
+        <div class="tarjeta"><img src="pintura/8.jpg" alt="Brocha 2"><h3>Brocha Cerda Natural 2"</h3><p class="precio">Bs. 12</p></div>
+        <div class="tarjeta"><img src="pintura/9.jpg" alt="Brocha 1"><h3>Brocha Cerda Natural 1"</h3><p class="precio">Bs. 8</p></div>
+        <div class="tarjeta"><img src="pintura/10.jpg" alt="Bandeja"><h3>Bandeja Plástica para Pintura</h3><p class="precio">Bs. 15</p></div>
+        <div class="tarjeta"><img src="pintura/11.jpg" alt="Espátula"><h3>Espátula Inoxidable 3"</h3><p class="precio">Bs. 18</p></div>
+        <div class="tarjeta"><img src="pintura/12.jpg" alt="Lija Agua"><h3>Lija al Agua Pliego N° 150</h3><p class="precio">Bs. 4</p></div>
+        <div class="tarjeta"><img src="pintura/13.jpg" alt="Lija Madera"><h3>Lija para Madera Pliego N° 80</h3><p class="precio">Bs. 3.50</p></div>
+        <div class="tarjeta"><img src="pintura/14.jpg" alt="Cinta Masking"><h3>Cinta de Enmascarar 2"</h3><p class="precio">Bs. 14</p></div>
+        <div class="tarjeta"><img src="pintura/15.jpg" alt="Thinner"><h3>Thinner Corriente 1 Litro</h3><p class="precio">Bs. 18</p></div>
+        <div class="tarjeta"><img src="pintura/16.jpg" alt="Aguarrás"><h3>Aguarrás Mineral 1 Litro</h3><p class="precio">Bs. 20</p></div>
+        <div class="tarjeta"><img src="pintura/17.jpg" alt="Barniz"><h3>Barniz Marino Transparente (Galón)</h3><p class="precio">Bs. 160</p></div>
+        <div class="tarjeta"><img src="pintura/18.jpg" alt="Sellador"><h3>Sellador de Paredes (Galón)</h3><p class="precio">Bs. 90</p></div>
+        <div class="tarjeta"><img src="pintura/19.jpg" alt="Anticorrosivo"><h3>Pintura Anticorrosiva (Galón)</h3><p class="precio">Bs. 135</p></div>
+        <div class="tarjeta"><img src="pintura/20.jpg" alt="Masilla"><h3>Masilla Corrida Interior 5Kg</h3><p class="precio">Bs. 35</p></div>
+        <div class="tarjeta"><img src="pintura/21.jpg" alt="Spray"><h3>Pintura en Spray 400ml</h3><p class="precio">Bs. 25</p></div>
+        <div class="tarjeta"><img src="pintura/22.jpg" alt="Tinte"><h3>Tinte para Madera 250ml</h3><p class="precio">Bs. 22</p></div>
+        <div class="tarjeta"><img src="pintura/23.jpg" alt="Extensión"><h3>Extensión Telescópica 2 Metros</h3><p class="precio">Bs. 45</p></div>
+        <div class="tarjeta"><img src="pintura/24.jpg" alt="Plástico"><h3>Plástico Protector Cobertor</h3><p class="precio">Bs. 12</p></div>
+        <div class="tarjeta"><img src="pintura/25.jpg" alt="Entonador"><h3>Entonador Universal 50cc</h3><p class="precio">Bs. 10</p></div>
+        <div class="tarjeta"><img src="pintura/26.jpg" alt="Pintura Piso"><h3>Pintura para Alto Tráfico/Piso</h3><p class="precio">Bs. 170</p></div>
+        <div class="tarjeta"><img src="pintura/27.jpg" alt="Llana"><h3>Llana Dentada para Estuco</h3><p class="precio">Bs. 30</p></div>
+        <div class="tarjeta"><img src="pintura/28.jpg" alt="Cepillo Alambre"><h3>Cepillo de Alambre Limpieza</h3><p class="precio">Bs. 15</p></div>
+        <div class="tarjeta"><img src="pintura/29.jpg" alt="Removedor"><h3>Removedor de Pintura 1 Litro</h3><p class="precio">Bs. 45</p></div>
+        <div class="tarjeta"><img src="pintura/30.jpg" alt="Pistola Pintar"><h3>Pistola para Pintar Neumática</h3><p class="precio">Bs. 150</p></div>
+    </div>
+    <button class="volver" onclick="volverProductos()">VOLVER A PRODUCTOS</button>
+</div>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+    <h2>¿QUIÉNES SOMOS?</h2>
+
+    <!-- Reseña histórica -->
+    <div class="resena-texto">
+        <p>
+            Nuestra historia se remonta al año 1997, cuando iniciamos este camino bajo el nombre de FERRATY. En nuestros orígenes, estábamos ubicados en las emblemáticas calles Pagador, Ayacucho y Cochabamba, lugar donde nos consolidamos con esfuerzo y dedicación durante más de 22 años de trayectoria, ganándonos la confianza de toda nuestra fiel clientela.
+        </p>
+        <p style="margin-top: 15px;">
+            Con el paso de los años, la empresa experimentó una evolución importante y una reubicación estratégica que dio paso a lo que hoy conocemos como Comercial El Pagador. Actualmente, nos encontramos en una ubicación mucho más estratégica y accesible, diseñada para estar más cerca de las nuevas construcciones y seguir ofreciendo el mejor servicio, herramientas y materiales de calidad a toda nuestra nueva y antigua clientela.
+
+<h2> </h2>
+
+<marquee behavior="alternate" direction="left" scrollamount="5">
+
+    <img src="antes/1.PNG" width="350" height="220">
+
+    <img src="antes/2.jpeg" width="350" height="220">
+
+    <img src="antes/3.jpeg" width="350" height="220">
+
+    <img src="antes/4.jpeg" width="350" height="220">
+     
+
+</marquee>
+        </p>
+    </div>
+
+  <!-- Misión y Visión -->
+<div class="mision-vision-grid">
+
+    <div class="tarjeta-mv">
+        <h3>🎯 MISIÓN</h3>
+
+        <table>
+            <tr>
+                <td>
+                    <p>
+                        Proveer materiales de construcción, herramientas y soluciones ferreteras de alta calidad, garantizando un servicio eficiente, honesto y personalizado que impulse el desarrollo de las obras de nuestros clientes.
+                    </p>
+                </td>
+                <td>
+                    <img src="contactos/2.jpg" width="180" height="130">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="tarjeta-mv">
+        <h3>🚀 VISIÓN</h3>
+
+        <table>
+            <tr>
+                <td>
+                    <p>
+                        Ser la comercial ferretera líder en la región, reconocida por la excelencia en la atención, la innovación constante en nuestro catálogo de productos y el compromiso permanente con la satisfacción de nuestra comunidad.
+                    </p>
+                </td>
+                <td>
+                    <img src="contactos/3.jpg" width="180" height="130">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<!-- CONTACTO -->
+<section id="contacto">
+    <h2>CONTÁCTANOS ☎️</h2>
+<!-- LETRERO LED ANIMADO -->
+<center>
+    <marquee behavior="scroll" direction="left" scrollamount="7">
+
+        <font color="#FF7676" size="5">
+            ⚡ TODO EN UN SOLO LUGAR:
+            HERRAMIENTAS | PINTURAS | PLOMERÍA  ⚡
+        </font>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <font color="#ef7373" size="5">
+            👷‍♂️ ATENCIÓN ESPECIAL A MAESTROS DE OBRA Y CONSTRUCTORES 👷‍♀️
+        </font>
+
+    </marquee>
+</center>
+    <p><strong>Dirección:</strong> AVENIDA AL VALLE CASI ESQ. CIRCUNVALACIÓN</p>
+
+<img src="contactos/1.png" width="350" height="220">
+
+    <p><strong>Teléfono:</strong> 76136298 / 76137362 </p>
+    <p><strong>Horario:</strong> Lunes a domingo, de 08:00 a 18:00</p>
+    <br>
+    <a class="boton" href="https://wa.me/59176137362" target="_blank">
+        CONSULTAR POR WHATSAPP
+    </a>
+</section>
+
+<!-- PIE DE PAGINA -->
+<footer>
+    <p>© 2026 COMERCIAL PAGADOR</p>
+    <p>Calidad, confianza y buenos precios.</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+function mostrarProductos(categoria) {
+    let catalogos = document.querySelectorAll(".catalogo");
+    catalogos.forEach(function(seccion) {
+        seccion.style.display = "none";
+    });
+
+    let elemento = document.getElementById(categoria);
+    if(elemento) {
+        elemento.style.display = "block";
+        elemento.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+function volverProductos() {
+    let catalogos = document.querySelectorAll(".catalogo");
+    catalogos.forEach(function(seccion) {
+        seccion.style.display = "none";
+    });
+
+    let productos = document.getElementById("productos");
+    if(productos) {
+        productos.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
+</script>
+
+</body>
+</html>
